@@ -1,0 +1,8 @@
+﻿  Enigma.cpp
+C:\Users\itsma\source\repos\ENIGMA_MarcNicolasDelgado_FINAL.sol\ENIGMA_MarcNicolasDelgado_FINAL\Enigma.cpp(8,17): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\itsma\source\repos\ENIGMA_MarcNicolasDelgado_FINAL.sol\ENIGMA_MarcNicolasDelgado_FINAL\Enigma.cpp(12,28): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\itsma\source\repos\ENIGMA_MarcNicolasDelgado_FINAL.sol\ENIGMA_MarcNicolasDelgado_FINAL\Enigma.cpp(209,19): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  main.cpp
+  Rotor.cpp
+  Generando código...
+  ENIGMA_MarcNicolasDelgado_FINAL.vcxproj -> C:\Users\itsma\source\repos\ENIGMA_MarcNicolasDelgado_FINAL.sol\x64\Debug\ENIGMA_MarcNicolasDelgado_FINAL.exe
