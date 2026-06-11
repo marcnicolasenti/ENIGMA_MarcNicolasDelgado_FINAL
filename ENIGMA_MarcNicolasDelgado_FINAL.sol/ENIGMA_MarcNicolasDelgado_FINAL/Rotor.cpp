@@ -60,7 +60,7 @@ bool crearRotorPerDefecte(std::string nomFitxer, int numeroRotor) {
     fitxer.open(nomFitxer);
 
     if (!fitxer.is_open()) {
-        std::cout << "[ERROR] No s'ha pogut crear " << nomFitxer << "." << std::endl;
+        std::cout << "ERROR No s'ha pogut crear " << nomFitxer << "." << std::endl;
         return false;
     }
 
@@ -68,7 +68,7 @@ bool crearRotorPerDefecte(std::string nomFitxer, int numeroRotor) {
     fitxer << notch << std::endl;
 
     if (fitxer.fail()) {
-        std::cout << "[ERROR] No s'ha pogut escriure " << nomFitxer << "." << std::endl;
+        std::cout << "No s'ha pogut escriure " << nomFitxer << "." << std::endl;
         fitxer.close();
         return false;
     }
@@ -85,7 +85,7 @@ bool carregarRotors(std::string rotors[], char notches[]) {
 
         // En cas de qye faltès un rotor, es crea automàticament amb una configuració vàlida.
         if (!fitxer.is_open()) {
-            std::cout << "[AVIS] No s'ha trobat " << nomFitxer << ". Es creara automaticament." << std::endl;
+            std::cout << "No s'ha trobat " << nomFitxer << ". Es creara automaticament." << std::endl;
 
             if (!crearRotorPerDefecte(nomFitxer, i + 1)) {
                 return false;
@@ -95,18 +95,18 @@ bool carregarRotors(std::string rotors[], char notches[]) {
         }
 
         if (!fitxer.is_open()) {
-            std::cout << "[ERROR] No s'ha pogut obrir " << nomFitxer << "." << std::endl;
+            std::cout << "No s'ha pogut obrir " << nomFitxer << "." << std::endl;
             return false;
         }
 
         if (!std::getline(fitxer, rotors[i])) {
-            std::cout << "[ERROR] " << nomFitxer << ": no s'ha pogut llegir la permutacio." << std::endl;
+            std::cout << "ERROR " << nomFitxer << ": no s'ha pogut llegir la permutacio." << std::endl;
             fitxer.close();
             return false;
         }
 
         if (!validarPermutacio(rotors[i])) {
-            std::cout << "[ERROR] " << nomFitxer << ": calen 26 lletres uniques entre A i Z." << std::endl;
+            std::cout << "ERROR " << nomFitxer << ": calen 26 lletres uniques entre A i Z." << std::endl;
             fitxer.close();
             return false;
         }
@@ -119,7 +119,7 @@ bool carregarRotors(std::string rotors[], char notches[]) {
         }
         else {
             if (!validarNotch(liniaNotch)) {
-                std::cout << "[ERROR] " << nomFitxer << ": el notch ha de ser una sola lletra entre A i Z." << std::endl;
+                std::cout << "ERROR " << nomFitxer << ": el notch ha de ser una sola lletra entre A i Z." << std::endl;
                 fitxer.close();
                 return false;
             }
@@ -130,13 +130,13 @@ bool carregarRotors(std::string rotors[], char notches[]) {
         std::string liniaExtra;
 
         if (std::getline(fitxer, liniaExtra)) {
-            std::cout << "[ERROR] " << nomFitxer << ": el fitxer nomes pot tenir dues linies." << std::endl;
+            std::cout << "ERROR " << nomFitxer << ": el fitxer nomes pot tenir dues linies." << std::endl;
             fitxer.close();
             return false;
         }
 
         if (fitxer.bad()) {
-            std::cout << "[ERROR] No s'ha pogut llegir " << nomFitxer << "." << std::endl;
+            std::cout << "No s'ha pogut llegir " << nomFitxer << "." << std::endl;
             fitxer.close();
             return false;
         }
@@ -235,7 +235,7 @@ void editarRotor(std::string rotors[], char notches[]) {
         numeroRotor = 3;
     }
     else {
-        std::cout << "[ERROR] Rotor no valid." << std::endl;
+        std::cout << " Rotor no valid." << std::endl;
         return;
     }
 
@@ -244,7 +244,7 @@ void editarRotor(std::string rotors[], char notches[]) {
     std::getline(std::cin, novaPermutacio);
 
     if (!validarPermutacio(novaPermutacio)) {
-        std::cout << "[ERROR] La permutacio ha de tenir 26 lletres uniques entre A i Z." << std::endl;
+        std::cout << "La permutacio ha de tenir 26 lletres uniques entre A i Z." << std::endl;
         return;
     }
 
@@ -254,7 +254,7 @@ void editarRotor(std::string rotors[], char notches[]) {
     fitxer.open(nomFitxer);
 
     if (!fitxer.is_open()) {
-        std::cout << "[ERROR] No s'ha pogut escriure " << nomFitxer << "." << std::endl;
+        std::cout << "No s'ha pogut escriure " << nomFitxer << "." << std::endl;
         return;
     }
 
@@ -263,13 +263,13 @@ void editarRotor(std::string rotors[], char notches[]) {
     fitxer << notches[posicioArray] << std::endl;
 
     if (fitxer.fail()) {
-        std::cout << "[ERROR] No s'ha pogut escriure " << nomFitxer << "." << std::endl;
+        std::cout << "No s'ha pogut escriure " << nomFitxer << "." << std::endl;
         fitxer.close();
         return;
     }
 
     fitxer.close();
 
-    std::cout << "[OK] " << nomFitxer << " actualitzat correctament." << std::endl;
+    std::cout << "OK " << nomFitxer << " actualitzat correctament." << std::endl;
     std::cout << "El notch es conserva: " << notches[posicioArray] << std::endl;
 }
