@@ -15,7 +15,7 @@ std::string canviarText(std::string text, std::string original, std::string nouT
     return text;
 }
 
-std::string netejarMissatge(std::string missatge) { // Substituïm els accents abans de descartar els caràcters que no siguin A-Z.
+std::string netejarMissatge(std::string missatge) { // Substituim els accents abans de descartar els caràcters que no siguin A-Z.
 
     missatge = canviarText(missatge, "à", "a");
     missatge = canviarText(missatge, "á", "a");
@@ -100,7 +100,7 @@ void demanarPosicions(int posicions[]) {
             }
 
             if (!correcte) {
-                std::cout << "[ERROR] Introdueix nomes una lletra entre A i Z." << std::endl;
+                std::cout << "Introdueix nomes una lletra entre A i Z." << std::endl;
             }
         } while (!correcte);
     }
@@ -147,14 +147,14 @@ bool escriureFitxer(std::string nomFitxer, std::string contingut) {
     fitxer.open(nomFitxer);
 
     if (!fitxer.is_open()) {
-        std::cout << "[ERROR] No s'ha pogut escriure el fitxer " << nomFitxer << "." << std::endl;
+        std::cout << "No s'ha pogut escriure el fitxer " << nomFitxer << "." << std::endl;
         return false;
     }
 
     fitxer << contingut;
 
     if (fitxer.fail()) {
-        std::cout << "[ERROR] Ha fallat l'escriptura del fitxer " << nomFitxer << "." << std::endl;
+        std::cout << "Ha fallat la escriptura del fitxer " << nomFitxer << "." << std::endl;
         fitxer.close();
         return false;
     }
@@ -168,7 +168,7 @@ bool llegirFitxer(std::string nomFitxer, std::string& contingut) {
     fitxer.open(nomFitxer);
 
     if (!fitxer.is_open()) {
-        std::cout << "[ERROR] No s'ha pogut obrir el fitxer " << nomFitxer << "." << std::endl;
+        std::cout << "No s'ha pogut obrir el fitxer " << nomFitxer << "." << std::endl;
         return false;
     }
 
@@ -180,7 +180,7 @@ bool llegirFitxer(std::string nomFitxer, std::string& contingut) {
     }
 
     if (fitxer.bad()) {
-        std::cout << "[ERROR] Ha fallat la lectura del fitxer " << nomFitxer << "." << std::endl;
+        std::cout << "Ha fallat la lectura del fitxer " << nomFitxer << "." << std::endl;
         fitxer.close();
         return false;
     }
@@ -207,7 +207,7 @@ void opcioXifrar(std::string rotors[], char notches[]) {
 
     if (escriureFitxer("Xifrat.txt", missatgeAgrupat)) {
         int grups = (missatgeXifrat.length() + 4) / 5;
-        std::cout << "[OK] Missatge xifrat a Xifrat.txt (" << missatgeXifrat.length() << " lletres, " << grups << " grups de 5)." << std::endl;
+        std::cout << "Missatge xifrat a Xifrat.txt (" << missatgeXifrat.length() << " lletres, " << grups << " grups de 5)." << std::endl;
     }
 }
 
