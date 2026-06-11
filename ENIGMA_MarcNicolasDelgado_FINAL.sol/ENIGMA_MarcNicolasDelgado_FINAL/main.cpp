@@ -9,7 +9,7 @@ int main() {
 
     // Carreguem els tres rotors abans de ensenyar el menú.
     if (!carregarRotors(rotors, notches)) {
-        std::cout << "[ERROR] Revisa els fitxers dels rotors abans de continuar." << std::endl;
+        std::cout << "Revisa els fitxers dels rotors abans de continuar." << std::endl;
         return 1;
     }
 
@@ -18,7 +18,6 @@ int main() {
     do {
         std::cout << std::endl;
         std::cout << "ENIGMA:" << std::endl;
-        std::cout << "-------------------------------" << std::endl;
         std::cout << "1. Xifrar missatge" << std::endl;
         std::cout << "2. Desxifrar missatge" << std::endl;
         std::cout << "3. Editar rotors" << std::endl;
@@ -39,7 +38,7 @@ int main() {
             std::cout << "Programa finalitzat." << std::endl;
         }
         else {
-            std::cout << "[ERROR] Opcio no valida." << std::endl;
+            std::cout << "Opcio no valida." << std::endl;
         }
     } while (opcio != "4");
 
